@@ -16,6 +16,7 @@ from streamlit_drawable_canvas import st_canvas
 from transformers import pipeline
 
 from flux.sampling import denoise, get_noise, get_schedule, prepare_fill, unpack
+from flux.theme import get_custom_css_for_streamlit, get_streamlit_theme_config
 from flux.util import (
     embed_watermark,
     load_ae,
@@ -151,8 +152,12 @@ def main(
     output_dir: str = "output",
     track_usage: bool = False,
 ):
+    # Apply console theme
+    st.markdown(get_custom_css_for_streamlit(), unsafe_allow_html=True)
+    
     torch_device = torch.device(device)
-    st.title("Flux Fill: Inpainting & Outpainting")
+    st.title("🎨 Flux Fill: Inpainting & Outpainting")
+    st.markdown("*Powered by FLUX with Console Theme*")
 
     # Model selection and loading
     name = "flux-dev-fill"

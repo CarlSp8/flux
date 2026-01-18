@@ -7,6 +7,25 @@ Documentation for our API can be found here: [docs.bfl.ai](https://docs.bfl.ai/)
 
 This repo contains minimal inference code to run image generation & editing with our Flux open-weight models.
 
+## 🎨 NEW: Trade Buddy & Console Theme
+
+**Enhanced FLUX experience with professional gallery management and console theme!**
+
+- 🎨 **Console Theme**: Professional dark theme with responsive design
+- 🗂️ **Trade Buddy**: Advanced gallery management, ratings, tags, and search
+- 🔗 **Asset Catalog**: Complete catalog of example images with quick links
+- 📚 **Prompt Library**: Reusable templates and inspiration
+- 📊 **Statistics**: Track your creative journey
+
+**Quick Start:** See [QUICKSTART.md](QUICKSTART.md) | **Full Guide:** [TRADE_BUDDY_GUIDE.md](TRADE_BUDDY_GUIDE.md) | **Assets:** [ASSETS_README.md](ASSETS_README.md)
+
+```bash
+# Launch Trade Buddy (recommended)
+python demo_trade_buddy.py --name flux-schnell
+```
+
+---
+
 ## Local installation
 
 ```bash

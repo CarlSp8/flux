@@ -11,6 +11,7 @@ from transformers import pipeline
 
 from flux.cli import SamplingOptions
 from flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
+from flux.theme import get_custom_css_for_gradio, get_gradio_theme
 from flux.util import (
     configs,
     embed_watermark,
@@ -181,8 +182,13 @@ def create_demo(
     generator = FluxGenerator(model_name, device, offload, track_usage)
     is_schnell = model_name == "flux-schnell"
 
-    with gr.Blocks() as demo:
-        gr.Markdown(f"# Flux Image Generation Demo - Model: {model_name}")
+    # Apply console theme
+    theme = get_gradio_theme()
+    custom_css = get_custom_css_for_gradio()
+
+    with gr.Blocks(theme=theme, css=custom_css, title=f"FLUX - {model_name}") as demo:
+        gr.Markdown(f"# 🎨 Flux Image Generation - Model: {model_name}")
+        gr.Markdown("*Powered by FLUX with Console Theme*")
 
         with gr.Row():
             with gr.Column():

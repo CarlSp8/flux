@@ -15,6 +15,7 @@ from transformers import pipeline
 
 from flux.cli import SamplingOptions
 from flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
+from flux.theme import get_custom_css_for_streamlit, get_streamlit_theme_config
 from flux.util import (
     configs,
     embed_watermark,
@@ -61,6 +62,13 @@ def main(
     output_dir: str = "output",
     track_usage: bool = False,
 ):
+    # Apply console theme
+    theme_config = get_streamlit_theme_config()
+    st.markdown(get_custom_css_for_streamlit(), unsafe_allow_html=True)
+    
+    st.title("🎨 FLUX Image Generation")
+    st.markdown("*Powered by FLUX with Console Theme*")
+    
     torch_device = torch.device(device)
     names = list(configs.keys())
     name = st.selectbox("Which model to load?", names)
